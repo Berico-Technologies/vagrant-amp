@@ -1,0 +1,11 @@
+- hosts: node1
+  vars:
+    hostname: node1
+    fqdn: node1.openampere.com
+    password: ampere
+    kdc_fqdn: kdc.openampere.com
+    ipa_realm: OPENAMPERE.COM
+    ipa_domain: openampere.com
+  roles:
+    - ipa-common
+    - ipa-client
