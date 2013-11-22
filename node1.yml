@@ -1,11 +1,14 @@
 - hosts: node1
   vars:
     hostname: node1
-    fqdn: node1.openampere.com
-    password: ampere
-    kdc_fqdn: kdc.openampere.com
-    ipa_realm: OPENAMPERE.COM
-    ipa_domain: openampere.com
+    fqdn: node1.test.openampere.com
+    password: openampere
+    kdc_fqdn: kdc.test.openampere.com
+    ipa_realm: TEST.OPENAMPERE.COM
+    ipa_domain: test.openampere.com
   roles:
     - ipa-common
     - ipa-client
+    - cdh-common
+    - cdh-zookeeper
+    - cdh-zk-kerberos
