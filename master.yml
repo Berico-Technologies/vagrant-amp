@@ -7,25 +7,27 @@
     ipa_domain: test.openampere.com
     is_kdc: true
     zk_nodes: [ "master", "node1" ]
-    ca_organization: OpenAMPere
-    ca_common_name: ca.test.openampere.com
+    ca_subj: /DC=com/DC=openampere/DC=test/CN=CA/
     srv_organization: OpenAMPere
-    srv_common_name: master.test.openampere.com
+    srv_name: master.test.openampere.com
+    srv_subj: /DC=com/DC=openampere/DC=test/CN=master/
     srv_p12_password: openampere
-    cli_organization: OpenAMPere
-    cli_common_name: client.test.openampere.com
+    cli_name: client.test.openampere.com
+    cli_subj: /DC=com/DC=openampere/DC=test/CN=client/
     cli_p12_password: openampere
+    java_hosts_to_trust: master.test.openampere.com
     rmq_use_ssl: true
     rmq_use_mgmt: true
-    rmq_srv_cert: /etc/certs/server/master.test.openampere.cer.pem
-    rmq_srv_key: /etc/certs/server/master.test.openampere.key.pem
+    rmq_srv_cert: /etc/certs/server/master.test.openampere.com.keycert.pem
+    rmq_srv_key: /etc/certs/server/master.test.openampere.com.key.pem
     rmq_use_mgmt_ssl: true
-    rmq_mgmt_srv_cert: /etc/certs/server/master.test.openampere.cer.pem
-    rmq_mgmt_srv_key: /etc/certs/server/master.test.openampere.key.pem
+    rmq_mgmt_srv_cert: /etc/certs/server/master.test.openampere.com.keycert.pem
+    rmq_mgmt_srv_key: /etc/certs/server/master.test.openampere.com.key.pem
   roles:
     - ssl-ca
     - ssl-service
     - ssl-client
+    - ssl-java
     - rabbitmq
     - rabbitmq-mgmt
     - rabbitmq-conf

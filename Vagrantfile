@@ -4,8 +4,8 @@
  
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "CentOS-6.3-VBox"
-  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-63-x64.box"
+  config.vm.box = "CentOS-6.4-VBox-NoCM"
+  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box"
 
   config.vm.provider :virtualbox do |vb|
     vb.auto_nat_dns_proxy = false
@@ -14,14 +14,14 @@ Vagrant.configure("2") do |config|
   config.vm.define :master do |master|
     master.vm.network :forwarded_port, guest: 80, host: 8081
     master.vm.network :forwarded_port, guest: 443, host: 1443
-    master.vm.network :public_network, bridge: "en1: Wi-Fi (AirPort)"
+    master.vm.network :private_network, ip: "192.168.19.15"
     master.vm.hostname = "master.test.openampere.com"
     master.vm.synced_folder "certs/", "/etc/certs"
     master.vm.provision :ansible do |ansible|
       ansible.sudo = true
       ansible.inventory_path = "inventory.yml"
       ansible.playbook = "master.yml"
-      ansible.verbose = "vvvv"
+      ansible.verbose = "vv"
     end
   end
 
