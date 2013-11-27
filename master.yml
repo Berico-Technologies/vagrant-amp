@@ -1,38 +1,10 @@
 - hosts: master
-  vars:
-    fqdn: master.test.openampere.com
-    password: openampere
-    kdc_fqdn: master.test.openampere.com
-    ipa_realm: TEST.OPENAMPERE.COM
-    ipa_domain: test.openampere.com
-    is_kdc: true
-    zk_nodes: [ "master", "node1" ]
-    ca_subj: /DC=com/DC=openampere/DC=test/CN=CA/
-    srv_organization: OpenAMPere
-    srv_name: master.test.openampere.com
-    srv_subj: /DC=com/DC=openampere/DC=test/CN=master/
-    srv_p12_password: openampere
-    cli_name: client.test.openampere.com
-    cli_subj: /DC=com/DC=openampere/DC=test/CN=client/
-    cli_p12_password: openampere
-    java_hosts_to_trust: master.test.openampere.com
-    rmq_use_ssl: true
-    rmq_use_mgmt: true
-    rmq_srv_cert: /etc/certs/server/master.test.openampere.com.keycert.pem
-    rmq_srv_key: /etc/certs/server/master.test.openampere.com.key.pem
-    rmq_use_mgmt_ssl: true
-    rmq_mgmt_srv_cert: /etc/certs/server/master.test.openampere.com.keycert.pem
-    rmq_mgmt_srv_key: /etc/certs/server/master.test.openampere.com.key.pem
   roles:
+    - hosts
     - ssl-ca
     - ssl-service
-    - ssl-client
-    - ssl-java
     - rabbitmq
-    - rabbitmq-mgmt
-    - rabbitmq-conf
-#    - ipa-common
-#    - ipa-server
+    - rabbitmq-cluster
 #    - cdh-common
 #    - cdh-zookeeper
 #    - cdh-zk-kerberos

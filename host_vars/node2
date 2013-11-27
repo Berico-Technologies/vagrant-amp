@@ -1,0 +1,10 @@
+fqdn: node2.test.openampere.com
+srv_organization: OpenAMPere
+srv_name: node2.test.openampere.com
+srv_subj: /DC=com/DC=openampere/DC=test/CN=node2/
+srv_p12_password: openampere
+java_hosts_to_trust: node2.test.openampere.com
+rmq_srv_cert: /etc/certs/server/node2.test.openampere.com.keycert.pem
+rmq_srv_key: /etc/certs/server/node2.test.openampere.com.key.pem
+rmq_mgmt_srv_cert: /etc/certs/server/node2.test.openampere.com.keycert.pem
+rmq_mgmt_srv_key: /etc/certs/server/node2.test.openampere.com.key.pem

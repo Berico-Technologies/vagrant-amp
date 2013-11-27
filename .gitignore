@@ -1,5 +1,7 @@
+.vagrant/
 .idea/
 .vagrant/
 .DS_Store
 certs/
 website/
+temp/

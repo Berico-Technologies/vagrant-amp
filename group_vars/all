@@ -1,0 +1,10 @@
+password: openampere
+rmq_use_ssl: true
+rmq_use_mgmt: true
+rmq_use_mgmt_ssl: true
+rmq_use_cluster: true
+rmq_local_erl_cookie_path: "temp/rmq_erlang.cookie"
+hosts:
+  - { fqdn: "master.test.openampere.com", hostname: "master", ip: "192.168.19.15" }
+  - { fqdn: "node1.test.openampere.com",  hostname: "node1",  ip: "192.168.19.16" }
+  - { fqdn: "node2.test.openampere.com",  hostname: "node2",  ip: "192.168.19.17" }
